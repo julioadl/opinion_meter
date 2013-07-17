@@ -21,7 +21,7 @@ question1 = []
 for id_answ in range(len(data)):
     question1.append((id_answ, data[id_answ][8]))
 
-response1 = dict(ScotA_1a_1)
+response1 = dict(question1)
 
 #new dictionary
 dictionary = []
