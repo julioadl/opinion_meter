@@ -17,12 +17,12 @@ for row in csv_file_object:
     data.append(row)
 
 #new list that contains tuples of (id, string)
-#question key: question1
-question1 = []
+#question key: question1a
+question1a = []
 for id_answ in range(len(data)):
-    question1.append((id_answ, data[id_answ][7]))
+    question1a.append((id_answ, data[id_answ][7]))
 
-response1 = dict(question1)
+response1a = dict(question1a)
 
 #new dictionary
 dictionary = []
@@ -40,9 +40,9 @@ for item in dictionary:
     scores[term] = float(score)
 
 #compare with dictionary
-for id_answ in response1:
+for id_answ in response1a:
     score_feeling = 0
-    answer = response1[id_answ]  #calls the "answer" from the question
+    answer = response1a[id_answ]  #calls the "answer" from the question
 
     for term in scores:
         if term in answer:
@@ -60,8 +60,8 @@ for id_answ in response1:
     
     DK = ['__NA__', 'dk', 'Dk', 'DK', 'd/k', 'dono']
 	
-    if response1[id_answ] not in DK:
-        print response1[id_answ], score_feeling
+    if response1a[id_answ] not in DK:
+        print response1a[id_answ], score_feeling
         
     
 
