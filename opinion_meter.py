@@ -1,13 +1,14 @@
 import numpy as np
 import csv as csv
 import math
+import sys
 
 #open dictionary
 
-afinfile = open("/Users/julioadl/Desktop/Scotto-Drones/dictionary2.txt")
+afinfile = open(sys.argv[1])
 
 # open and import into the CSV. It skips the first line as it's the header
-csv_file_object = csv.reader(open("/Users/julioadl/Desktop/Scotto-Drones/drones.csv", "rb"))
+csv_file_object = csv.reader(open(sys.argv[2], "rb"))
 header = csv_file_object.next()
 data = []
 
@@ -19,7 +20,7 @@ for row in csv_file_object:
 #question key: question1
 question1 = []
 for id_answ in range(len(data)):
-    question1.append((id_answ, data[id_answ][8]))
+    question1.append((id_answ, data[id_answ][7]))
 
 response1 = dict(question1)
 
