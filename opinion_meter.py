@@ -20,14 +20,14 @@ for row in csv_file_object:
 #question key: question1b
 question1b = []
 for id_answ in range(len(data)):
-    question1b.append((id_answ, data[id_answ][9]))
+    question1b.append((id_answ, data[id_answ][8]))
 
 response1b = dict(question1b)
 
 #new dictionary
 dictionary = []
 negatives = ['no', 'No', 'NO', 'none', 'NONE', 'None', 'not good', 'nothing good']
-neutrals = ['Nothing', 'nothing']
+neutrals = ['Nothing', 'nothing',]
 
 for line in afinfile:
     dictionary.append(line)
@@ -58,7 +58,7 @@ for id_answ in response1b:
 	#if answer in negatives:
 	   #score_feeling = -1
     
-    DK = ['__NA__', 'dk', 'Dk', 'DK', 'd/k', 'dono']
+    DK = ['__NA__', 'dk', 'Dk', 'DK', 'd/k', 'dono', "don't know", 'do not know']
 	
     if response1b[id_answ] not in DK:
         print response1b[id_answ], score_feeling
