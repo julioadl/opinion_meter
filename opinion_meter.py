@@ -46,9 +46,8 @@ for id_answ in response1b:
 
     for term in scores:
         if term in answer:
-            score_feeling = score_feeling + scores[term]
+            score_feeling += scores[term]
                 
-    if len(answer.split()) == 1:
         if answer in negatives:
             score_feeling = -1
        #elif answer in neutrals:
@@ -58,7 +57,7 @@ for id_answ in response1b:
 	#if answer in negatives:
 	   #score_feeling = -1
     
-    DK = ['__NA__', 'dk', 'Dk', 'DK', 'd/k', 'dono', "don't know", 'do not know', 'dont know']
+    DK = ['__NA__', 'dk', 'Dk', 'DK', 'd/k', 'dono', "don't know", 'do not know', 'dont know','not sure']
 	
     if response1b[id_answ] not in DK:
         print response1b[id_answ], score_feeling
