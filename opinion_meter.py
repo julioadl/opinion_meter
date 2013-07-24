@@ -20,7 +20,7 @@ for row in csv_file_object:
 #question key: question1b
 question1b = []
 for id_answ in range(len(data)):
-    question1b.append((id_answ, data[id_answ][10]))
+    question1b.append((id_answ, data[id_answ][17]))
 
 response1b = dict(question1b)
 
