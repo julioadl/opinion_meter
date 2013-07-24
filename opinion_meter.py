@@ -48,9 +48,9 @@ for id_answ in response1b:
         if term in answer:
             score_feeling += scores[term]
                 
-        if answer in negatives:
-            score_feeling = -1
-       #elif answer in neutrals:
+    if answer in negatives:
+        score_feeling = -1
+    #elif answer in neutrals:
         #score_feeling = 0
    
    # if len(answer.split()) == 2:
