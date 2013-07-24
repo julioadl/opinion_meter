@@ -20,7 +20,7 @@ for row in csv_file_object:
 #question key: question1b
 question1b = []
 for id_answ in range(len(data)):
-    question1b.append((id_answ, data[id_answ][8]))
+    question1b.append((id_answ, data[id_answ][10]))
 
 response1b = dict(question1b)
 
@@ -58,7 +58,7 @@ for id_answ in response1b:
 	#if answer in negatives:
 	   #score_feeling = -1
     
-    DK = ['__NA__', 'dk', 'Dk', 'DK', 'd/k', 'dono', "don't know", 'do not know']
+    DK = ['__NA__', 'dk', 'Dk', 'DK', 'd/k', 'dono', "don't know", 'do not know', 'dont know']
 	
     if response1b[id_answ] not in DK:
         print response1b[id_answ], score_feeling
