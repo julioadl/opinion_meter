@@ -11,7 +11,7 @@ class MapReduce:
 	self.result.setdefault(key, [])
 	self.result[key].append(total)
 
-    def execute(self, data, mapper, reducer):
+    def execute(self, data, mapper, reducer, data2):
         for line in data:
             mapper(line)
 
@@ -19,4 +19,4 @@ class MapReduce:
             reducer(key, self.intermediate[key])
 
         for item in self.result:
-            print item, 0
+            data2.append(item)
