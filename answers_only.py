@@ -5,7 +5,7 @@ import sys
 
 #open and import into the CSV. Skips the header
 csv_file_object = csv.reader(open(sys.argv[1], "rb"))
-header = csv_file_object.next()
+#header = csv_file_object.next()
 data = []
 
 #fill in the data into a list:
@@ -15,7 +15,7 @@ for row in csv_file_object:
 #new list that contains the strings
 answers = []
 for item in range(len(data)):
-    answers.append(data[item][8])
+    answers.append(data[item][19])
 
 #prints answers
 #list of words to ommit
