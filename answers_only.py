@@ -5,7 +5,7 @@ import sys
 
 #open and import into the CSV. Skips the header
 csv_file_object = csv.reader(open(sys.argv[1], "rb"))
-#header = csv_file_object.next()
+header = csv_file_object.next()
 data = []
 
 #fill in the data into a list:
