@@ -18,11 +18,9 @@ for row in csv_file_object:
 
 #new list that contains tuples of (id, string)
 #question key: question1b
-question1b = []
-for id_answ in range(len(data)):
-    question1b.append((id_answ, data[id_answ][19]))
-
-response1b = dict(question1b)
+question = []
+for answer in range(len(data)):
+    question.append(data[answer][27])
 
 #new dictionary
 dictionary = []
@@ -40,13 +38,14 @@ for item in dictionary:
     scores[term] = float(score)
 
 #compare with dictionary
-for id_answ in response1b:
+for answer in question:
     score_feeling = 0
-    answer = response1b[id_answ]  #calls the "answer" from the question
+    words = answer.split()
 
     for term in scores:
-        if term in answer:
-            score_feeling += scores[term]
+        for item in words: 
+            if term == item:
+                score_feeling += scores[term]
                 
     if answer in negatives:
         score_feeling = -1
@@ -57,10 +56,11 @@ for id_answ in response1b:
 	#if answer in negatives:
 	   #score_feeling = -1
     
-    DK = ['__NA__', 'dk', 'Dk', 'DK', 'd/k', 'dono', "don't know", 'do not know', 'dont know','not sure']
+    DK = ['__NA__', 'dk', 'Dk', 'DK', 'd/k', 'dono', 'D/K']
 	
-    if response1b[id_answ] not in DK:
-        print response1b[id_answ], score_feeling
+    for item in words:
+        if item not in DK:
+            print answer, score_feeling
         
     
 
