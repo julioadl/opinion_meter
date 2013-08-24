@@ -28,6 +28,10 @@ for individual in range(len(data)):
     response.append(data[individual,18])
     response.append(data[individual,19])
     response.append(data[individual,20])
+    response.append(data[individual,22])
+    response.append(data[individual,23])
+    response.append(data[individual,24])
+    response.append(data[individual,25])
     question[data[individual,0]] = response #adds the items of the numpy array into one individual respone
 
 #new dictionary
