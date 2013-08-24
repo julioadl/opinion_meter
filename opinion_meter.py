@@ -16,16 +16,24 @@ data = []
 for row in csv_file_object:
     data.append(row)
 
+#transforms data into an array
+data = np.array(data)
+
 #new list that contains tuples of (id, string)
 #question key: question1b
-question = []
-for answer in range(len(data)):
-    question.append(data[answer][27])
+question = {}
+for individual in range(len(data)):
+    response = []
+    response.append(data[individual,17])    #picks up the item of the numpy array
+    response.append(data[individual,18])
+    response.append(data[individual,19])
+    response.append(data[individual,20])
+    question[data[individual,0]] = response #adds the items of the numpy array into one individual respone
 
 #new dictionary
 dictionary = []
-negatives = ['no', 'No', 'NO', 'none', 'NONE', 'None', 'not good', 'nothing good']
-neutrals = ['Nothing', 'nothing',]
+negatives = ['no', 'No', 'NO', 'Nothing', 'nothing', 'none', 'None','NONE']
+neutrals = ['Nothing', 'nothing']
 
 for line in afinfile:
     dictionary.append(line)
@@ -35,33 +43,31 @@ scores = {}
 for item in dictionary:
     term, score = item.split()
     #term = term.decode('utf-8')
-    scores[term] = float(score)
+    scores[term] = int(score)
 
 #compare with dictionary
-for answer in question:
-    score_feeling = 0
-    words = answer.split()
-
-    for term in scores:
-        for item in words: 
-            if term == item:
-                score_feeling += scores[term]
-                
-    if answer in negatives:
-        score_feeling = -1
-    #elif answer in neutrals:
-        #score_feeling = 0
-   
-   # if len(answer.split()) == 2:
-	#if answer in negatives:
-	   #score_feeling = -1
+for individual in question:
+    general_score = 0
     
-    DK = ['__NA__', 'dk', 'Dk', 'DK', 'd/k', 'dono', 'D/K']
-	
-    for item in words:
-        if item not in DK:
-            print answer, score_feeling
-        
+    for answer in question[individual]:
+        score_feeling = 0
+        words = answer.split()
+
+        for term in scores:
+            for item in words: 
+                if term == item:
+                    score_feeling += scores[term]
+                
+        if answer in negatives:
+            score_feeling = 0
+
+        if score_feeling > 0:
+            general_score += 1
+        elif score_feeling < 0:
+            general_score -= 1
+
+    question[individual].append(general_score)
+    print general_score
     
 
 
